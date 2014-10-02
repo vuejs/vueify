@@ -87,3 +87,7 @@ And here's a SublimeText syntax definition for enabling language hihglighting/su
 ## Example
 
 For an example setup, see [vuejs/vueify-example](https://github.com/vuejs/vueify-example).
+
+---
+
+If you use Webpack, there's also [vue-loader](https://github.com/vuejs/vue-loader) that does the same thing.
