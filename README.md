@@ -1,6 +1,6 @@
 # vueify
 
-> Browserify transform for Vue.js components
+> [Browserify](http://browserify.org/) transform for [Vue.js](http://vuejs.org/) components
 
 This transform allows you to write your components in this format:
 
