@@ -11,7 +11,7 @@ module.exports = function vueify (file) {
   }
 
   function end () {
-    compiler.compile(data, function(error, result) {
+    compiler.compile(data, file, function(error, result) {
       if (error) stream.emit('error', error)
       stream.queue(result)
       stream.queue(null)
