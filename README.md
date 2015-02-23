@@ -2,7 +2,7 @@
 
 > [Browserify](http://browserify.org/) transform for [Vue.js](http://vuejs.org/) components
 
-This transform allows you to write your components in this format:
+This is just a thin adaptor on top of [vue-component-compiler](https://github.com/vuejs/vue-component-compiler). It allows you to write your components in this format:
 
 ``` html
 // app.vue
@@ -87,6 +87,8 @@ Currently supported preprocessors are:
 - scss (via `node-sass`)
 - jade
 - coffee-script
+- myth
+- es6 (via `6to5` aka `babel`)
 
 And here's a [SublimeText package](https://github.com/vuejs/vue-syntax-highlight) for enabling language highlighting/support in these embbeded code blocks.
 
