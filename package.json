@@ -19,7 +19,7 @@
   "homepage": "https://github.com/vuejs/vueify",
   "dependencies": {
     "through": "^2.3.6",
-    "vue-component-compiler": "^1.1.2"
+    "vue-component-compiler": "^1.1.4"
   },
   "peerDependencies": {
     "insert-css": "^0.2.0"
