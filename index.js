@@ -1,6 +1,8 @@
 var through = require('through')
 var compiler = require('vue-component-compiler')
 
+compiler.loadConfig()
+
 module.exports = function vueify (file) {
   if (!/.vue$/.test(file)) return through()
   var data = ''
