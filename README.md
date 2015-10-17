@@ -153,13 +153,13 @@ If you use Webpack, there's also [vue-loader](https://github.com/vuejs/vue-loade
 
 ## Changelog
 
-### 2.0.0
+### 2.0.1
 
 - Built-in lang for ES2015 has been renamed from `es6` to `es`.
 
-- Templates and CSS are now non-minified by default. To enable minification, run the build with `NODE_ENV=production`.
+- `es` transforms now uses loose mode and optional runtime by default. This means in addition to installing `babel`, you should also install `babel-runtime`.
 
-- `es6` transforms now uses loose mode and optional runtime by default. This means in addition to installing `babel`, you should also install `babel-runtime`.
+- Templates and CSS are now non-minified by default. To enable minification, run the build with `NODE_ENV=production`.
 
 - Options for built-in pre-processors can now be configured in `vue.config.js`.
 
