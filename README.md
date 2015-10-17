@@ -1,8 +1,8 @@
-# vueify
+# vueify [![npm version](https://badge.fury.io/js/vueify.svg)](http://badge.fury.io/js/vue-component-compiler) [![Build Status](https://circleci.com/gh/vuejs/vueify.svg?style=shield)](https://circleci.com/gh/vuejs/vueify)
 
 > [Browserify](http://browserify.org/) transform for [Vue.js](http://vuejs.org/) components
 
-This is just a thin adaptor on top of [vue-component-compiler](https://github.com/vuejs/vue-component-compiler). It allows you to write your components in this format:
+This transform allows you to write your components in this format:
 
 ``` html
 // app.vue
@@ -123,6 +123,18 @@ module.exports = function (compiler) {
 }
 ```
 
+### Compiler API
+
+The compiler API (originally `vue-component-compiler`) is also exposed:
+
+``` js
+var compiler = require('vueify').compiler
+// filePath should be an absolute path, and is optional if
+// the fileContent doesn't contain src imports
+compiler.compile(fileContent, filePath, function (err, result) {
+  // result is a common js module string
+})
+```
 
 ## Syntax Highlighting
 
