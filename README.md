@@ -1,4 +1,4 @@
-# vueify [![npm version](https://badge.fury.io/js/vueify.svg)](http://badge.fury.io/js/vue-component-compiler) [![Build Status](https://circleci.com/gh/vuejs/vueify.svg?style=shield)](https://circleci.com/gh/vuejs/vueify)
+# vueify [![npm version](https://badge.fury.io/js/vueify.svg)](http://badge.fury.io/js/vueify) [![Build Status](https://circleci.com/gh/vuejs/vueify.svg?style=shield)](https://circleci.com/gh/vuejs/vueify)
 
 > [Browserify](http://browserify.org/) transform for [Vue.js](http://vuejs.org/) components
 
@@ -88,9 +88,9 @@ These are the built-in preprocessors:
 - jade
 - coffee-script
 - myth
-- es6 (via Babel)
+- es (ECMAScript 2015 via Babel)
 
-## Using ES6 transform
+## Using ES2015 transform
 
 The default options used for Babel is:
 
@@ -101,22 +101,22 @@ The default options used for Babel is:
 }
 ```
 
-These options result in faster and smaller built code. This also means when using es6, **you need install both `babel` and `babel-runtime`**.
+These options result in faster and smaller built code. This also means when using `lang="es"`, **you need install both `babel` and `babel-runtime`**.
 
 ## Pre-Processor Configuration
 
 Create a `vue.config.js` file at where your build command is run (usually y the root level of your project):
 
 ``` js
-module.exports = function (compiler) {
+module.exports = function (vueify) {
 
   // configure the options for a built-in language
-  compiler.option('sass', {
+  vueify.option('sass', {
     includePaths: [...]
   })
 
   // register a custom compile function for <script lang="es">
-  compiler.register({
+  vueify.register({
     lang: 'es',
     type: 'script',
     compile: function (content, cb) {
@@ -154,6 +154,8 @@ If you use Webpack, there's also [vue-loader](https://github.com/vuejs/vue-loade
 ## Changelog
 
 ### 2.0.0
+
+- Built-in lang for ES2015 has been renamed from `es6` to `es`.
 
 - Templates and CSS are now non-minified by default. To enable minification, run the build with `NODE_ENV=production`.
 

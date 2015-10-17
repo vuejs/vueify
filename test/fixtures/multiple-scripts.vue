@@ -6,6 +6,6 @@ var a = 1
 b = x -> x or 5
 </script>
 
-<script lang="es6">
+<script lang="es">
 let p = x => x || 5
 </script>

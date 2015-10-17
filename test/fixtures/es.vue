@@ -1,4 +1,4 @@
-<script lang="es6">
+<script lang="es">
 class Test {
   ok() {}
 }
