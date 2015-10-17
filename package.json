@@ -1,6 +1,6 @@
 {
   "name": "vueify",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Vue component transform for Browserify",
   "main": "index.js",
   "repository": {
