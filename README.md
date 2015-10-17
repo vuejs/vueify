@@ -144,6 +144,14 @@ And here's a [SublimeText package](https://github.com/vuejs/vue-syntax-highlight
 
 For an example setup, see [vuejs/vueify-example](https://github.com/vuejs/vueify-example).
 
----
-
 If you use Webpack, there's also [vue-loader](https://github.com/vuejs/vue-loader) that does the same thing.
+
+## Changelog
+
+### 2.0.0
+
+- Templates and CSS are now non-minified by default. To enable minification, run the build with `NODE_ENV=production`.
+
+- `es6` transforms now uses loose mode and optional runtime by default. This means in addition to installing `babel`, you should also install `babel-runtime`.
+
+- `vue-component-compiler` has been merged into `vueify`. It is now exposed as `require('vueify').compiler`.
