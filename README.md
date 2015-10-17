@@ -88,7 +88,20 @@ These are the built-in preprocessors:
 - jade
 - coffee-script
 - myth
-- es6 (via `6to5` aka `babel`)
+- es6 (via Babel)
+
+## Using ES6 transform
+
+The default options used for Babel is:
+
+``` js
+{
+  loose: 'all',
+  optional: ['runtime']
+}
+```
+
+These options result in faster and smaller built code. This also means when using es6, **you need install both `babel` and `babel-runtime`**.
 
 ## Registering Custom Pre-Processors
 

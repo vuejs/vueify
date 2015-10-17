@@ -1,5 +1,5 @@
 var through = require('through')
-var compiler = require('vue-component-compiler')
+var compiler = require('./lib/compiler')
 
 compiler.loadConfig()
 
@@ -30,3 +30,6 @@ module.exports = function vueify (file) {
 
   return stream
 }
+
+// expose compiler
+module.exports.compiler = compiler

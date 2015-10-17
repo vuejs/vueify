@@ -16,12 +16,28 @@
   "bugs": {
     "url": "https://github.com/vuejs/vueify/issues"
   },
+  "scripts": {
+    "test": "NODE_ENV=production mocha test/test.js --slow=1000"
+  },
   "homepage": "https://github.com/vuejs/vueify",
   "dependencies": {
     "through": "^2.3.6",
-    "vue-component-compiler": "^2.0.0"
+    "async": "^1.4.2",
+    "clean-css": "^3.4.4",
+    "html-minifier": "^0.8.0",
+    "parse5": "^1.5.0"
   },
   "peerDependencies": {
     "insert-css": "^0.2.0"
+  },
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "coffee-script": "^1.10.0",
+    "jade": "^1.11.0",
+    "less": "^2.5.1",
+    "mocha": "^2.3.3",
+    "myth": "^1.5.0",
+    "node-sass": "^3.3.3",
+    "stylus": "^0.52.4"
   }
 }
