@@ -103,14 +103,19 @@ The default options used for Babel is:
 
 These options result in faster and smaller built code. This also means when using es6, **you need install both `babel` and `babel-runtime`**.
 
-## Registering Custom Pre-Processors
+## Pre-Processor Configuration
 
 Create a `vue.config.js` file at where your build command is run (usually y the root level of your project):
 
 ``` js
 module.exports = function (compiler) {
-  
-  // register a compile function for <script lang="es">
+
+  // configure the options for a built-in language
+  compiler.option('sass', {
+    includePaths: [...]
+  })
+
+  // register a custom compile function for <script lang="es">
   compiler.register({
     lang: 'es',
     type: 'script',
@@ -153,5 +158,7 @@ If you use Webpack, there's also [vue-loader](https://github.com/vuejs/vue-loade
 - Templates and CSS are now non-minified by default. To enable minification, run the build with `NODE_ENV=production`.
 
 - `es6` transforms now uses loose mode and optional runtime by default. This means in addition to installing `babel`, you should also install `babel-runtime`.
+
+- Options for built-in pre-processors can now be configured in `vue.config.js`.
 
 - `vue-component-compiler` has been merged into `vueify`. It is now exposed as `require('vueify').compiler`.
