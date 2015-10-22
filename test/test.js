@@ -2,6 +2,7 @@ var fs = require('fs')
 var path = require('path')
 var compiler = require('../lib/compiler')
 var assert = require('assert')
+var hash = require('hash-sum')
 var insertCssPath = JSON.stringify(require.resolve('../lib/insert-css.js'))
 
 // test custom transform
@@ -24,6 +25,7 @@ function test (name) {
     var fileContent = read(filePath)
     var expected = read('expects/' + name + '.js')
       .replace(/\{\{insertCssPath\}\}/, insertCssPath)
+      .replace(/\{\{id\}\}/g, hash(require.resolve('./' + filePath)))
 
     // test src imports registering dependency
     var addDep
@@ -49,7 +51,9 @@ function test (name) {
         try {
           assert.equal(result, expected)
         } catch (e) {
-          console.log(result)
+          console.log('expected:\n\n' + expected + '\n')
+          console.log('result:\n\n' + result + '\n')
+          assert(!e)
         }
 
         if (name === 'src') {
