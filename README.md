@@ -1,6 +1,6 @@
 # vueify [![npm version](https://badge.fury.io/js/vueify.svg)](http://badge.fury.io/js/vueify) [![Build Status](https://circleci.com/gh/vuejs/vueify.svg?style=shield)](https://circleci.com/gh/vuejs/vueify)
 
-> [Browserify](http://browserify.org/) transform for [Vue.js](http://vuejs.org/) components
+> [Browserify](http://browserify.org/) transform for [Vue.js](http://vuejs.org/) components, with scoped CSS and component hot-reloading.
 
 This transform allows you to write your components in this format:
 
@@ -128,7 +128,58 @@ module.exports = function (vueify) {
 }
 ```
 
-### Compiler API
+### Scoped CSS
+
+> Experimental
+
+When a `<style>` tag has the `scoped` attribute, its CSS will apply to elements of the current component only. This is similar to the style encapsulation found in Shadow DOM, but doesn't require any polyfills. It is achieved by transforming the following:
+
+``` html
+<style scoped>
+.example {
+  color: red;
+}
+</style>
+<template>
+  <div class="example">hi</div>
+</template>
+```
+
+Into the following:
+
+``` html
+<style>
+.example[_v-1] {
+  color: red;
+}
+</style>
+<template>
+  <div class="example" _v-1>hi</div>
+</template>
+```
+
+#### Notes
+
+1. You can include both scoped and non-scoped styles in the same component.
+
+2. A child component's root node will be affected by both the parent's scoped CSS and the child's scoped CSS.
+
+3. Partials are not affected by scoped styles.
+
+### Hot Reload
+
+> Experimental
+
+To enable hot component reloading, you need to install the [browserify-hmr](https://github.com/AgentME/browserify-hmr) plugin:
+
+``` bash
+npm install browserify-hmr --save-dev
+watchify -p browserify-hmr index.js -o bundle.js
+```
+
+A full setup example with hot reloading is available at [vuejs/vueify-example](https://github.com/vuejs/vueify-example).
+
+## Compiler API
 
 The compiler API (originally `vue-component-compiler`) is also exposed:
 
@@ -147,11 +198,15 @@ And here's a [SublimeText package](https://github.com/vuejs/vue-syntax-highlight
 
 ## Example
 
-For an example setup, see [vuejs/vueify-example](https://github.com/vuejs/vueify-example).
+For an example setup using most of the features mentioned above, see [vuejs/vueify-example](https://github.com/vuejs/vueify-example).
 
 If you use Webpack, there's also [vue-loader](https://github.com/vuejs/vue-loader) that does the same thing.
 
 ## Changelog
+
+### 3.0.0
+
+- Added support for [scoped CSS](#scoped-css) and [component hot reloading](#hot-reload).
 
 ### 2.0.1
 
