@@ -25,7 +25,7 @@ function test (name) {
     var fileContent = read(filePath)
     var expected = read('expects/' + name + '.js')
       .replace(/\{\{insertCssPath\}\}/, insertCssPath)
-      .replace(/\{\{id\}\}/g, hash(require.resolve('./' + filePath)))
+      .replace(/\{\{id\}\}/g, '_v-' + hash(require.resolve('./' + filePath)))
 
     // test src imports registering dependency
     var addDep
