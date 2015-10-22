@@ -2,6 +2,7 @@ var fs = require('fs')
 var path = require('path')
 var compiler = require('../lib/compiler')
 var assert = require('assert')
+var insertCssPath = JSON.stringify(require.resolve('../lib/insert-css.js'))
 
 // test custom transform
 compiler.register({
@@ -22,6 +23,7 @@ function test (name) {
     var filePath = 'fixtures/' + name + '.vue'
     var fileContent = read(filePath)
     var expected = read('expects/' + name + '.js')
+      .replace(/\{\{insertCssPath\}\}/, insertCssPath)
 
     // test src imports registering dependency
     var addDep
@@ -34,6 +36,7 @@ function test (name) {
       compiler.on('dependency', addDep)
     }
 
+    process.env.VUEIFY_TEST = true
     process.env.NODE_ENV = name === 'non-minified'
       ? 'development'
       : 'production'
@@ -43,7 +46,11 @@ function test (name) {
       path.resolve(__dirname, filePath),
       function (err, result) {
         assert(!err)
-        assert.equal(result, expected)
+        try {
+          assert.equal(result, expected)
+        } catch (e) {
+          console.log(result)
+        }
 
         if (name === 'src') {
           compiler.removeListener('dependency', addDep)
