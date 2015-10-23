@@ -29,7 +29,7 @@ This transform allows you to write your components in this format:
 
 You can also mix preprocessor languages in the component file:
 
-``` html
+``` vue
 // app.vue
 <style lang="stylus">
 .red
@@ -91,7 +91,7 @@ In your HTML:
 </body>
 ```
 
-#### ES2015 by Default
+## ES2015 by Default
 
 Vueify 4.0+ automatically transforms the JavaScript in your `*.vue` components using Babel. Write ES2015 today!
 
