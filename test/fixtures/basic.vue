@@ -9,10 +9,15 @@
 </template>
 
 <script>
-var a = 123
-module.exports = {
-  data: function () {
-    return 123
+class Test {
+  ok() {}
+}
+
+var evens = [2,4,6,8]
+var odds = evens.map(v => v + 1)
+export default {
+  data() {
+    return odds
   }
 }
 </script>

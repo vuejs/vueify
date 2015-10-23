@@ -1,5 +1,4 @@
-var __vueify_style_insert__ = require({{insertCssPath}})
-var __vueify_style__ = __vueify_style_insert__.insert("body{font:12px Helvetica,Arial,sans-serif}a.button{-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px}")
+var __vueify_style__ = require("vueify-insert-css").insert("body{font:12px Helvetica,Arial,sans-serif}a.button{-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px}")
 module.exports = {
   data: function() {
     return {

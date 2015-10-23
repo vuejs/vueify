@@ -3,7 +3,6 @@ var path = require('path')
 var compiler = require('../lib/compiler')
 var assert = require('assert')
 var hash = require('hash-sum')
-var insertCssPath = JSON.stringify(require.resolve('../lib/insert-css.js'))
 
 // test custom transform
 compiler.register({
@@ -24,7 +23,6 @@ function test (name) {
     var filePath = 'fixtures/' + name + '.vue'
     var fileContent = read(filePath)
     var expected = read('expects/' + name + '.js')
-      .replace(/\{\{insertCssPath\}\}/, insertCssPath)
       .replace(/\{\{id\}\}/g, '_v-' + hash(require.resolve('./' + filePath)))
 
     // test src imports registering dependency
