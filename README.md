@@ -236,6 +236,10 @@ If you use Webpack, there's also [vue-loader](https://github.com/vuejs/vue-loade
 
 ## Changelog
 
+### 4.0.0
+
+- Support ES2015 by default.
+
 ### 3.0.0
 
 - Added support for [scoped CSS](#scoped-css) and [component hot reloading](#hot-reload).
