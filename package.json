@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/vuejs/vueify",
   "dependencies": {
-    "babel": "^5.8.25",
+    "babel": "^5.8.23",
     "clean-css": "^3.4.4",
     "es6-promise": "^3.0.2",
     "hash-sum": "^1.0.2",
