@@ -72,8 +72,54 @@ And this is all you need to do in your main entry file:
 ``` js
 // main.js
 var Vue = require('vue')
-var appOptions = require('./app.vue')
-var app = new Vue(appOptions).$mount('#app')
+var App = require('./app.vue')
+
+new Vue({
+  el: 'body',
+  components: {
+    app: App
+  }
+})
+```
+
+In your HTML:
+
+``` html
+<body>
+  <app></app>
+  <script src="build.js"></script>
+</body>
+```
+
+#### ES2015 by Default
+
+Vueify 4.0+ automatically transforms the JavaScript in your `*.vue` components using Babel. Write ES2015 today!
+
+The default Babel options used for Vue.js components are:
+
+``` js
+{
+  // use babel-runtime library for common helpers
+  optional: ['runtime'],
+  // use loose mode for faster builds
+  loose: 'all',
+  // disable non-standard stuff (e.g. JSX)
+  nonStandard: false
+}
+```
+
+If you wish to mofidy this, you can add a `vue.config.js` and configure the option for `babel`:
+
+``` js
+// vue.config.js
+module.exports = function (vueify) {
+  vueify.option('babel', {
+    stage: 0, // use all the fancy stage 0 features!
+    optional: ['runtime'],
+    loose: 'all',
+    nonStandard: false
+  })
+}
 ```
 
 ## Enabling Pre-Processors
@@ -88,20 +134,6 @@ These are the built-in preprocessors:
 - jade
 - coffee-script
 - myth
-- es (ECMAScript 2015 via Babel)
-
-## Using ES2015 transform
-
-The default options used for Babel is:
-
-``` js
-{
-  loose: 'all',
-  optional: ['runtime']
-}
-```
-
-These options result in faster and smaller built code. This also means when using `lang="es"`, **you need install both `babel` and `babel-runtime`**.
 
 ## Pre-Processor Configuration
 
