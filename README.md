@@ -122,6 +122,10 @@ module.exports = function (vueify) {
 }
 ```
 
+## Autoprefix by Default
+
+Starting in 5.0.0, all CSS output via vueify will be autoprefixed by default. See [config section](#configuring-options) on customizing the options.
+
 ## Enabling Pre-Processors
 
 You need to install the corresponding node modules to enable the compilation. e.g. to get stylus compiled in your Vue components, do `npm install stylus --save-dev`.
@@ -135,28 +139,28 @@ These are the built-in preprocessors:
 - coffee-script
 - myth
 
-## Pre-Processor Configuration
+## Configuring Options
 
-Create a `vue.config.js` file at where your build command is run (usually y the root level of your project):
+Create a `vue.config.js` file at where your build command is run (usually the root level of your project):
 
 ``` js
-module.exports = function (vueify) {
-
-  // configure the options for a built-in language
-  vueify.option('sass', {
+module.exports = {
+  // configure a built-in compiler
+  sass: {
     includePaths: [...]
-  })
-
-  // register a custom compile function for <script lang="es">
-  vueify.register({
-    lang: 'es',
-    type: 'script',
-    compile: function (content, cb) {
-      // transform the content...
-      cb(null, content)
+  },
+  // configure autoprefixer
+  autoprefixer: {
+    browsers: ['last 2 versions']
+  },
+  // register custom compilers
+  customCompilers: {
+    // for tags with lang="ts"
+    ts: function (content, cb) {
+      // compile some TypeScript...
+      cb(null, result)
     }
-  })
-
+  }
 }
 ```
 
@@ -235,6 +239,11 @@ For an example setup using most of the features mentioned above, see [vuejs/vuei
 If you use Webpack, there's also [vue-loader](https://github.com/vuejs/vue-loader) that does the same thing.
 
 ## Changelog
+
+### 5.0.0
+
+- New: CSS output is now autoprefixed by default.
+- Changed: [New config file format](#configuring-options)
 
 ### 4.0.0
 
