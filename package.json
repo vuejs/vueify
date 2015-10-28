@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/vuejs/vueify",
   "dependencies": {
+    "autoprefixer": "^6.0.3",
     "babel": "^5.8.23",
     "clean-css": "^3.4.4",
     "es6-promise": "^3.0.2",

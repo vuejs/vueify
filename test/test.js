@@ -5,12 +5,12 @@ var assert = require('assert')
 var hash = require('hash-sum')
 
 // test custom transform
-compiler.register({
-  lang: 'test',
-  type: 'script',
-  compile: function (content, cb) {
-    content = content.replace('not ', '')
-    cb(null, content)
+compiler.applyConfig({
+  customCompilers: {
+    test: function (content, cb) {
+      content = content.replace('not ', '')
+      cb(null, content)
+    }
   }
 })
 
