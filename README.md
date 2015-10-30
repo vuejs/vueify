@@ -91,6 +91,19 @@ In your HTML:
 </body>
 ```
 
+If you are using `vueify` in Node:
+
+``` js
+var fs = require("fs")
+var browserify = require('browserify')
+var vueify = require('vueify')
+
+browserify('./entry.js')
+  .transform(vueify)
+  .bundle()
+  .pipe(fs.createWriteStream("bundle.js"))
+```
+
 ## ES2015 by Default
 
 Vueify 4.0+ automatically transforms the JavaScript in your `*.vue` components using Babel. Write ES2015 today!
@@ -162,6 +175,24 @@ module.exports = {
     }
   }
 }
+```
+
+Alternatively, if you are using `vueify` in Node and don't want to create a `vue.config.js` file:
+
+``` js
+var fs = require("fs")
+var browserify = require('browserify')
+var vueify = require('vueify')
+
+// apply custom config
+vueify.compiler.applyConfig({
+  // ...same as in vue.config.js
+})
+
+browserify('./entry.js')
+  .transform(vueify)
+  .bundle()
+  .pipe(fs.createWriteStream("bundle.js"))
 ```
 
 ### Scoped CSS
