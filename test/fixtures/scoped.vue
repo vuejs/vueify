@@ -1,6 +1,7 @@
 <style scoped>
   div { color: red; }
   .test { color: green; }
+  .test:after { content: 'bye!'; }
 </style>
 
 <template>
