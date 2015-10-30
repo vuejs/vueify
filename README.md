@@ -112,13 +112,13 @@ If you wish to mofidy this, you can add a `vue.config.js` and configure the opti
 
 ``` js
 // vue.config.js
-module.exports = function (vueify) {
-  vueify.option('babel', {
+module.exports = {
+  babel: {
     stage: 0, // use all the fancy stage 0 features!
     optional: ['runtime'],
     loose: 'all',
     nonStandard: false
-  })
+  }
 }
 ```
 
