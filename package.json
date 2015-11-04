@@ -23,7 +23,7 @@
   "dependencies": {
     "autoprefixer": "^6.0.3",
     "babel": "^5.8.23",
-    "clean-css": "^3.4.4",
+    "cssnano": "^3.3.2",
     "es6-promise": "^3.0.2",
     "hash-sum": "^1.0.2",
     "html-minifier": "^0.8.0",
