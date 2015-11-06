@@ -135,10 +135,6 @@ module.exports = {
 }
 ```
 
-## Autoprefix by Default
-
-Starting in 5.0.0, all CSS output via vueify will be autoprefixed by default. See [config section](#configuring-options) on customizing the options.
-
 ## Enabling Pre-Processors
 
 You need to install the corresponding node modules to enable the compilation. e.g. to get stylus compiled in your Vue components, do `npm install stylus --save-dev`.
@@ -152,6 +148,14 @@ These are the built-in preprocessors:
 - coffee-script
 - myth
 
+## Autoprefix by Default
+
+Starting in 5.0.0, all CSS output via vueify will be autoprefixed by default. See [config section](#configuring-options) below on customizing the options.
+
+## PostCSS
+
+Vueify uses PostCSS for scoped CSS rewrite and autoprefixing. You can also provide your own PostCSS plugins! See [config section](#configuring-options) below for an example.
+
 ## Configuring Options
 
 Create a `vue.config.js` file at where your build command is run (usually the root level of your project):
@@ -162,6 +166,8 @@ module.exports = {
   sass: {
     includePaths: [...]
   },
+  // provide your own postcss plugins
+  postcss: [...],
   // configure autoprefixer
   autoprefixer: {
     browsers: ['last 2 versions']
@@ -174,6 +180,18 @@ module.exports = {
       cb(null, result)
     }
   }
+}
+```
+
+Example using custom PostCSS plugin:
+
+``` js
+var cssnext = require('cssnext')
+
+module.exports = {
+  postcss: [cssnext()],
+  // disable autoprefixer since cssnext comes with it
+  autoprefixer: false
 }
 ```
 
@@ -270,6 +288,10 @@ For an example setup using most of the features mentioned above, see [vuejs/vuei
 If you use Webpack, there's also [vue-loader](https://github.com/vuejs/vue-loader) that does the same thing.
 
 ## Changelog
+
+### 5.0.4
+
+- Added `postcss` option for providing custom PostCSS plugins.
 
 ### 5.0.0
 
