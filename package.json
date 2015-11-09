@@ -17,7 +17,7 @@
     "url": "https://github.com/vuejs/vueify/issues"
   },
   "scripts": {
-    "test": "NODE_ENV=production mocha test/test.js --slow=2000 --timeout=5000"
+    "test": "NODE_ENV=production mocha test/test.js --slow=5000 --timeout=10000"
   },
   "homepage": "https://github.com/vuejs/vueify",
   "dependencies": {
