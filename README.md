@@ -106,31 +106,27 @@ browserify('./entry.js')
 
 ## ES2015 by Default
 
-Vueify 4.0+ automatically transforms the JavaScript in your `*.vue` components using Babel. Write ES2015 today!
+Vueify automatically transforms the JavaScript in your `*.vue` components using Babel. Write ES2015 today!
 
-The default Babel options used for Vue.js components are:
+The default Babel (6) options used for Vue.js components are:
 
 ``` js
 {
-  // use babel-runtime library for common helpers
-  optional: ['runtime'],
-  // use loose mode for faster builds
-  loose: 'all',
-  // disable non-standard stuff (e.g. JSX)
-  nonStandard: false
+  presets: ['es2015'],
+  plugins: ['transform-runtime']
 }
 ```
 
-If you wish to mofidy this, you can add a `vue.config.js` and configure the option for `babel`:
+If you wish to override this, you can add a `vue.config.js` and configure the option for `babel`:
 
 ``` js
 // vue.config.js
 module.exports = {
   babel: {
-    stage: 0, // use all the fancy stage 0 features!
-    optional: ['runtime'],
-    loose: 'all',
-    nonStandard: false
+    // enable stage 0 transforms.
+    // make sure to install babel-presets-stage-0
+    presets: ['es2015', 'stage-0'],
+    plugins: ['transform-runtime']
   }
 }
 ```
