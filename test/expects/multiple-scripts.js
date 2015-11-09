@@ -9,3 +9,4 @@ b = x(function() {
 var p = function p(x) {
   return x || 5;
 };
+if (module.exports.__esModule) module.exports = module.exports.default
