@@ -285,6 +285,10 @@ If you use Webpack, there's also [vue-loader](https://github.com/vuejs/vue-loade
 
 ## Changelog
 
+### 6.0.0
+
+- Upgraded to Babel 6. This is a breaking change because the babel configuration is now different.
+
 ### 5.0.4
 
 - Added `postcss` option for providing custom PostCSS plugins.
