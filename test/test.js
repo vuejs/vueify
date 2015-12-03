@@ -25,16 +25,12 @@ function test (name) {
     var expected = read('expects/' + name + '.js')
       .replace(/\{\{id\}\}/g, '_v-' + hash(require.resolve('./' + filePath)))
 
-    // test src imports registering dependency
-    var addDep
-    var deps
-    if (name === 'src') {
-      deps = []
-      addDep = function (file) {
-        deps.push(file)
-      }
-      compiler.on('dependency', addDep)
+    // test registering dependency
+    var deps = []
+    function addDep (file) {
+      deps.push(file)
     }
+    compiler.on('dependency', addDep)
 
     process.env.VUEIFY_TEST = true
     process.env.NODE_ENV = name === 'non-minified'
@@ -51,12 +47,19 @@ function test (name) {
         setTimeout(function () {
           if (err) throw err
           assert.equal(result, expected, 'should compile correctly')
+
+          // check src
           if (name === 'src') {
-            compiler.removeListener('dependency', addDep)
             assert.equal(deps[0], __dirname + '/fixtures/test.html')
             assert.equal(deps[1], __dirname + '/fixtures/test.styl')
             assert.equal(deps[2], __dirname + '/fixtures/src/test.js')
           }
+
+          if (name === 'less' || name === 'sass' || name === 'styl') {
+            assert.equal(deps[0], __dirname + '/fixtures/imports/import.' + name)
+          }
+
+          compiler.removeListener('dependency', addDep)
           done()
         }, 0)
       }

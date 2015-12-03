@@ -1,5 +1,5 @@
 <style lang="sass">
-@import './imports/import.scss';
+@import './imports/import.sass';
 
 body {
   font: 100% $font-stack;
