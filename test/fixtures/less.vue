@@ -1,5 +1,5 @@
 <style lang="less">
-@base: #f938ab;
+@import './imports/import.less';
 
 .box-shadow(@style, @c) when (iscolor(@c)) {
   -webkit-box-shadow: @style @c;

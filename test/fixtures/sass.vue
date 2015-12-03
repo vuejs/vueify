@@ -1,6 +1,5 @@
 <style lang="sass">
-$font-stack:    Helvetica, sans-serif;
-$primary-color: #333;
+@import './imports/import.scss';
 
 body {
   font: 100% $font-stack;

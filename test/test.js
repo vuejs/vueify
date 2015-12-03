@@ -45,23 +45,20 @@ function test (name) {
       fileContent,
       path.resolve(__dirname, filePath),
       function (err, result) {
-        assert(!err)
-        try {
-          assert.equal(result, expected)
-        } catch (e) {
-          console.log('expected:\n\n' + expected + '\n')
-          console.log('result:\n\n' + result + '\n')
-          assert(!e)
-        }
-
-        if (name === 'src') {
-          compiler.removeListener('dependency', addDep)
-          assert.equal(deps[0], __dirname + '/fixtures/test.html')
-          assert.equal(deps[1], __dirname + '/fixtures/test.styl')
-          assert.equal(deps[2], __dirname + '/fixtures/src/test.js')
-        }
-        
-        done()
+        // the cb is handled by a Promise, so the assertion
+        // errors gets swallowed and the test never fails.
+        // do it in a separate tick.
+        setTimeout(function () {
+          if (err) throw err
+          assert.equal(result, expected, 'should compile correctly')
+          if (name === 'src') {
+            compiler.removeListener('dependency', addDep)
+            assert.equal(deps[0], __dirname + '/fixtures/test.html')
+            assert.equal(deps[1], __dirname + '/fixtures/test.styl')
+            assert.equal(deps[2], __dirname + '/fixtures/src/test.js')
+          }
+          done()
+        }, 0)
       }
     )
   })
