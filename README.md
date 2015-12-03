@@ -47,7 +47,7 @@ module.exports =
 </script>
 ```
 
-And you can import using the `src` attribute (note you'll have to save the vue file to trigger a rebuild since the imported file is not tracked by Browserify as a dependency):
+And you can import using the `src` attribute:
 
 ``` html
 <style lang="stylus" src="style.styl"></style>
@@ -58,7 +58,7 @@ Under the hood, the transform will:
 - extract the styles, compile them and insert them with the `insert-css` module.
 - extract the template, compile it and add it to your exported options.
 
-You can `require()` other stuff in the `<script>` as usual. Note that for CSS-preprocessor @imports, the path should be relative to your project root directory.
+You can `require()` other stuff in the `<script>` as usual. ~~Note that for CSS-preprocessor @imports, the path should be relative to your project root directory.~~ Starting in 7.0.0, `@import` in LESS, SASS and Stylus files can be either relative to your build tool root working directory, or to the file being edited.
 
 ## Usage
 
@@ -142,7 +142,6 @@ These are the built-in preprocessors:
 - scss (via `node-sass`)
 - jade
 - coffee-script
-- myth
 
 ## Autoprefix by Default
 
@@ -266,8 +265,8 @@ The compiler API (originally `vue-component-compiler`) is also exposed:
 
 ``` js
 var compiler = require('vueify').compiler
-// filePath should be an absolute path, and is optional if
-// the fileContent doesn't contain src imports
+
+// filePath should be an absolute path
 compiler.compile(fileContent, filePath, function (err, result) {
   // result is a common js module string
 })
@@ -284,6 +283,12 @@ For an example setup using most of the features mentioned above, see [vuejs/vuei
 If you use Webpack, there's also [vue-loader](https://github.com/vuejs/vue-loader) that does the same thing.
 
 ## Changelog
+
+### 7.0.0
+
+- Added relative `@import` path support and import dependency tracking for LESS, SASS & Stylus. Now you can `@import` files using relative paths to the file being edited, and editing these imported files will also trigger watchify rebuild.
+
+- Removed built-in compiler for `myth`. Prefer using PostCSS + CSSNext.
 
 ### 6.0.0
 
