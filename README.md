@@ -67,6 +67,16 @@ npm install vueify --save-dev
 browserify -t vueify -e src/main.js -o build/build.js
 ```
 
+If you are using npm 3+, it no longer auto install the peer dependencies. So you will also have to do:
+
+``` bash
+npm install\
+  vueify-insert-css vue-hot-reload-api\
+  babel-core babel-preset-es2015\
+  babel-plugin-transform-runtime babel-runtime@5\
+  --save-dev
+```
+
 And this is all you need to do in your main entry file:
 
 ``` js
