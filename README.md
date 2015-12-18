@@ -294,6 +294,10 @@ If you use Webpack, there's also [vue-loader](https://github.com/vuejs/vue-loade
 
 ## Changelog
 
+### 8.0.0
+
+- `babel-core` is now a peer dependency.
+
 ### 7.0.0
 
 - Added relative `@import` path support and import dependency tracking for LESS, SASS & Stylus. Now you can `@import` files using relative paths to the file being edited, and editing these imported files will also trigger watchify rebuild.
