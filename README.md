@@ -284,7 +284,7 @@ compiler.compile(fileContent, filePath, function (err, result) {
 
 ## Syntax Highlighting
 
-And here's a [SublimeText package](https://github.com/vuejs/vue-syntax-highlight) for enabling language highlighting/support in these embbeded code blocks.
+Currently there are syntax highlighting support for [Sublime Text](https://github.com/vuejs/vue-syntax-highlight), [Atom](https://atom.io/packages/language-vue), [Vim](https://github.com/posva/vim-vue) and [Visual Studio Code](https://marketplace.visualstudio.com/items/liuji-jim.vue). Contributions for other editors/IDEs are highly appreciated! If you are not using any pre-processors in Vue components, you can also get by by treating `*.vue` files as HTML in your editor.
 
 ## Example
 
