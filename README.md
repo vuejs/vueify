@@ -127,19 +127,16 @@ The default Babel (6) options used for Vue.js components are:
 }
 ```
 
-If you wish to override this, you can add a `vue.config.js` and configure the option for `babel`:
+If you wish to override this, you can add a `.babelrc` file at the root of your project:
 
-``` js
-// vue.config.js
-module.exports = {
-  babel: {
-    // enable stage 0 transforms.
-    // make sure to install babel-presets-stage-0
-    presets: ['es2015', 'stage-0'],
-    plugins: ['transform-runtime']
-  }
+``` json
+{
+  "presets": ["es2015", "stage-2"],
+  "plugins": ["transform-runtime"]
 }
 ```
+
+You can also configure babel with the `babel` field in `vue.config.js`, which will take the highest priority.
 
 ## Enabling Pre-Processors
 
