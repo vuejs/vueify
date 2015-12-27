@@ -291,6 +291,10 @@ If you use Webpack, there's also [vue-loader](https://github.com/vuejs/vue-loade
 
 ## Changelog
 
+### 8.1.0
+
+- Vueify now respects `.babelrc` over default options.
+
 ### 8.0.0
 
 - `babel-core` is now a peer dependency.
