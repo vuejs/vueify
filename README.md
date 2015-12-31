@@ -174,6 +174,11 @@ module.exports = {
   autoprefixer: {
     browsers: ['last 2 versions']
   },
+  // configure html minification in production mode
+  // see https://github.com/kangax/html-minifier#options-quick-reference
+  htmlMinifier: {
+    // ...
+  },
   // register custom compilers
   customCompilers: {
     // for tags with lang="ts"
@@ -290,6 +295,11 @@ For an example setup using most of the features mentioned above, see [vuejs/vuei
 If you use Webpack, there's also [vue-loader](https://github.com/vuejs/vue-loader) that does the same thing.
 
 ## Changelog
+
+### 8.2.0
+
+- Added `htmlMinifier` option in config that allows configuration of HTML minification in production mode.
+- Fixed HTML minification removing `type` attribute for `<input type="text">`.
 
 ### 8.1.0
 
