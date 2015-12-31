@@ -6,6 +6,7 @@
 
 <template>
   <h1 :id="id" @click="hi">hello</h1>
+  <input type="text">
 </template>
 
 <script>

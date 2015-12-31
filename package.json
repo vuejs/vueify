@@ -25,7 +25,7 @@
     "cssnano": "^3.3.2",
     "es6-promise": "^3.0.2",
     "hash-sum": "^1.0.2",
-    "html-minifier": "^0.8.0",
+    "html-minifier": "^1.0.0",
     "lru-cache": "^2.7.0",
     "object-assign": "^4.0.1",
     "parse5": "^1.5.0",
