@@ -296,6 +296,11 @@ If you use Webpack, there's also [vue-loader](https://github.com/vuejs/vue-loade
 
 ## Changelog
 
+### 8.3.0
+
+- Added compile-time template syntax validation that catches common errors.
+- Code blocks with base indents are now de-indented before being processed.
+
 ### 8.2.0
 
 - Added `htmlMinifier` option in config that allows configuration of HTML minification in production mode.
