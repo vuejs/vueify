@@ -7,4 +7,5 @@
 
 <template>
   <div>hi<p class="test">bye</p></div>
+  <template v-if="ok"><p class="test">yo</p></template>
 </template>
