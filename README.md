@@ -179,6 +179,8 @@ module.exports = {
   htmlMinifier: {
     // ...
   },
+  // export styles into file
+  cssExport: 'dist/build.css',
   // register custom compilers
   customCompilers: {
     // for tags with lang="ts"
