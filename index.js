@@ -1,7 +1,12 @@
 var through = require('through')
+var fs = require('fs')
 var compiler = require('./lib/compiler')
 
-compiler.loadConfig()
+var config = compiler.loadConfig()
+
+if (config.cssExport) {
+  fs.writeFile(config.cssExport, '')
+}
 
 module.exports = function vueify (file) {
   if (!/.vue$/.test(file)) return through()
@@ -11,6 +16,12 @@ module.exports = function vueify (file) {
   function dependency(file) {
     stream.emit('file', file)
   }
+
+  function style(buf) {
+    if (config.cssExport) {
+      fs.appendFile(config.cssExport, buf)
+    }
+  }
   
   function write(buf) {
     data += buf
@@ -19,9 +30,11 @@ module.exports = function vueify (file) {
   function end () {
     stream.emit('file', file)
     compiler.on('dependency', dependency)
+    compiler.on('style', style)
 
     compiler.compile(data, file, function(error, result) {
       compiler.removeListener('dependency', dependency)
+      compiler.removeListener('style', style)
       if (error) stream.emit('error', error)
       stream.queue(result)
       stream.queue(null)
