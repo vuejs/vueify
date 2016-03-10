@@ -15,7 +15,7 @@ var _createClass3 = _interopRequireDefault(_createClass2);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Test = (function () {
+var Test = function () {
   function Test() {
     (0, _classCallCheck3.default)(this, Test);
   }
@@ -25,7 +25,7 @@ var Test = (function () {
     value: function ok() {}
   }]);
   return Test;
-})();
+}();
 
 var evens = [2, 4, 6, 8];
 var odds = evens.map(function (v) {

@@ -14,4 +14,4 @@ module.exports = {
 };
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "<h1>Jade - node template engine<div id=container class=col><a href=http://vuejs.org>You are amazing</a><p>Jade is a terse and simple templating language with a strong focus on performance and powerful features.</p></div></h1>"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "<h1>Jade - node template engine<div id=container class=col><a href=http://vuejs.org>You are amazing</a><p>Jade is a terse and simple templating language with a strong focus on performance and powerful features.</div></h1>"
