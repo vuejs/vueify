@@ -17,13 +17,13 @@ This transform allows you to write your components in this format:
 </template>
 
 <script>
-  module.exports = {
-    data: function () {
-      return {
-        msg: 'Hello world!'
-      }
+export default {
+  data () {
+    return {
+      msg: 'Hello world!'
     }
   }
+}
 </script>
 ```
 
