@@ -7,6 +7,7 @@
 <template>
   <h1 :id="id" @click="hi">hello</h1>
   <input type="text">
+  <button :disabled="loading">hihi</button>
 </template>
 
 <script>
