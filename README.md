@@ -122,8 +122,8 @@ The default Babel (6) options used for Vue.js components are:
 
 ``` js
 {
-  presets: ['es2015'],
-  plugins: ['transform-runtime']
+  "presets": ["es2015"],
+  "plugins": ["transform-runtime"]
 }
 ```
 
