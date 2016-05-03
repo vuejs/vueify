@@ -148,6 +148,7 @@ These are the built-in preprocessors:
 - less
 - scss (via `node-sass`)
 - jade
+- pug
 - coffee-script
 
 ## Autoprefix by Default
