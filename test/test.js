@@ -72,4 +72,15 @@ describe('Vueify compiler', function () {
     .forEach(function (file) {
       test(path.basename(file, '.js'))
     })
+  it('missing dependencies', function(done) {
+    var rewire = require('rewire')
+    var ensureRequire = rewire('../lib/ensure-require.js')
+    ensureRequire.__set__('require.resolve',function(){throw new Error()})
+    compiler = rewire('../lib/compiler')
+    compiler.__set__('ensureRequire',ensureRequire)
+    compiler.compile('<template></template><script></script><style>a{font-size:20px}</style>', function (err,result) {
+      assert.equal(err.message,'You are trying to use "styles". vueify-insert-css is missing.\n\nTo install run:\nnpm install --save-dev vueify-insert-css')
+      done()
+    })
+  })
 })
