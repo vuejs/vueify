@@ -58,7 +58,7 @@ Under the hood, the transform will:
 - extract the styles, compile them and insert them with the `insert-css` module.
 - extract the template, compile it and add it to your exported options.
 
-You can `require()` other stuff in the `<script>` as usual. ~~Note that for CSS-preprocessor @imports, the path should be relative to your project root directory.~~ Starting in 7.0.0, `@import` in LESS, SASS and Stylus files can be either relative to your build tool root working directory, or to the file being edited.
+You can `require()` other stuff in the `<script>` as usual. ~~Note that for CSS-preprocessor @imports, the path should be relative to your project root directory.~~ Starting in 7.0.0, `@import` in LESS, SASS and Stylus files can be either relative to your build tool root working directory, or to the file being edited. Or one can set import paths in options.
 
 ## Usage
 
@@ -108,7 +108,7 @@ var fs = require("fs")
 var browserify = require('browserify')
 var vueify = require('vueify')
 
-browserify('./entry.js')
+browserify('./main.js')
   .transform(vueify)
   .bundle()
   .pipe(fs.createWriteStream("bundle.js"))
@@ -146,10 +146,10 @@ These are the built-in preprocessors:
 
 - stylus
 - less
-- scss (via `node-sass`)
+- scss (via `node-sass`, use `sass` in [config section](#configuring-options))
 - jade
 - pug
-- coffee-script
+- coffee-script (use `coffee` in [config section](#configuring-options))
 
 ## Autoprefix by Default
 
@@ -220,8 +220,26 @@ vueify.compiler.applyConfig({
   // ...same as in vue.config.js
 })
 
-browserify('./entry.js')
+browserify('./main.js')
   .transform(vueify)
+  .bundle()
+  .pipe(fs.createWriteStream("bundle.js"))
+```
+
+Or simply pass configuration object to `vueify` (in Node) (for instance to set sass search paths as in the following example):
+
+``` js
+var fs = require("fs")
+var browserify = require('browserify')
+var vueify = require('vueify')
+
+browserify('./main.js')
+  .transform(vueify, {
+    sass: {
+      includePaths: [...]
+    },
+    // ...same as in vue.config.js
+  })
   .bundle()
   .pipe(fs.createWriteStream("bundle.js"))
 ```

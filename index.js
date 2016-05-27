@@ -3,15 +3,17 @@ var compiler = require('./lib/compiler')
 
 compiler.loadConfig()
 
-module.exports = function vueify (file) {
+module.exports = function vueify (file, options) {
   if (!/.vue$/.test(file)) return through()
+  compiler.applyConfig(options)
+
   var data = ''
   var stream = through(write, end)
 
   function dependency(file) {
     stream.emit('file', file)
   }
-  
+
   function write(buf) {
     data += buf
   }
