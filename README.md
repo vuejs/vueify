@@ -320,6 +320,14 @@ If you use Webpack, there's also [vue-loader](https://github.com/vuejs/vue-loade
 
 ## Changelog
 
+### 8.5.0
+
+- Now also supports passing in Vueify options via browserify transform options. The options are exactly the same as `vue.config.js`.
+
+### 8.4.0
+
+- Removed peer dependencies. Now vueify simply warns you when you are using a feature that requires a missing dependency.
+
 ### 8.3.0
 
 - Added compile-time template syntax validation that catches common errors.
