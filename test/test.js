@@ -24,6 +24,7 @@ function test (name) {
     var fileContent = read(filePath)
     var expected = read('expects/' + name + '.js')
       .replace(/\{\{id\}\}/g, '_v-' + hash(require.resolve('./' + filePath)))
+      .replace(/\{\{insertCss\}\}/g, require.resolve('../lib/insert-css'))
 
     // test registering dependency
     var deps = []
