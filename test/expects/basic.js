@@ -1,4 +1,5 @@
-var __vueify_style__ = require("vueify-insert-css").insert("html{font-size:20px}")
+var __vueify_insert__ = require("/Users/evan/Vue/vueify/lib/insert-css.js")
+var __vueify_style__ = __vueify_insert__.insert("html{font-size:20px}")
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
