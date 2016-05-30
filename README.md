@@ -67,13 +67,14 @@ npm install vueify --save-dev
 browserify -t vueify -e src/main.js -o build/build.js
 ```
 
-If you are using npm 3+, it no longer auto install the peer dependencies. So you will also have to do:
+If you are using npm 3+, it no longer auto install the peer dependencies. So you will also have to also install the babel-related dependencies:
 
 ``` bash
 npm install\
-  vueify-insert-css vue-hot-reload-api\
-  babel-core babel-preset-es2015\
-  babel-plugin-transform-runtime babel-runtime@5\
+  babel-core\
+  babel-preset-es2015\
+  babel-runtime\
+  babel-plugin-transform-runtime\
   --save-dev
 ```
 
@@ -113,6 +114,12 @@ browserify('./main.js')
   .bundle()
   .pipe(fs.createWriteStream("bundle.js"))
 ```
+
+## Building for Production
+
+Make sure to have the `NODE_ENV` environment variable set to `"production"` when building for production! This strips away unnecessary code (e.g. hot-reload) for smaller bundle size.
+
+If you are using Gulp, note that `gulp --production` **does not** affect vueify; you still need to explicitly set `NODE_ENV=production`.
 
 ## ES2015 by Default
 
