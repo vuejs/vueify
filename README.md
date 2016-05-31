@@ -300,6 +300,8 @@ npm install browserify-hmr --save-dev
 watchify -p browserify-hmr index.js -o bundle.js
 ```
 
+In order to enable hot reload, you need to set `VUEIFY_HOT_RELOAD` environment variable to `true`
+
 A full setup example with hot reloading is available at [vuejs/vueify-example](https://github.com/vuejs/vueify-example).
 
 ## Compiler API
