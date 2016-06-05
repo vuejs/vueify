@@ -1,0 +1,1 @@
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "<div class=greeting style=\"background-color: green\">Hello World!</div><div class=greeting style=\"background-color: yellow\">Hello Frank!</div>"

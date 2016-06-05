@@ -45,6 +45,7 @@
     "coffee-script": "^1.10.0",
     "jade": "^1.11.0",
     "less": "^2.5.1",
+    "marko": "^3.4.4",
     "mocha": "^2.3.3",
     "node-sass": "^3.3.3",
     "pug": "^2.0.0-alpha6",
