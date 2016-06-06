@@ -391,3 +391,7 @@ If you use Webpack, there's also [vue-loader](https://github.com/vuejs/vue-loade
 - Options for built-in pre-processors can now be configured in `vue.config.js`.
 
 - `vue-component-compiler` has been merged into `vueify`. It is now exposed as `require('vueify').compiler`.
+
+## License
+
+[MIT](http://opensource.org/licenses/MIT)
