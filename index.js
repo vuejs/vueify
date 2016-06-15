@@ -24,7 +24,11 @@ module.exports = function vueify (file, options) {
 
     compiler.compile(data, file, function(error, result) {
       compiler.removeListener('dependency', dependency)
-      if (error) stream.emit('error', error)
+      if (error) {
+        stream.emit('error', error)
+        // browserify doesn't log the stack by default...
+        console.error(error.stack.replace(/^.*?\n/, ''))
+      }
       stream.queue(result)
       stream.queue(null)
     })
