@@ -327,70 +327,7 @@ If you use Webpack, there's also [vue-loader](https://github.com/vuejs/vue-loade
 
 ## Changelog
 
-### 8.5.0
-
-- Now also supports passing in Vueify options via browserify transform options. The options are exactly the same as `vue.config.js`.
-
-### 8.4.0
-
-- Removed peer dependencies. Now vueify simply warns you when you are using a feature that requires a missing dependency.
-
-### 8.3.0
-
-- Added compile-time template syntax validation that catches common errors.
-- Code blocks with base indents are now de-indented before being processed.
-
-### 8.2.0
-
-- Added `htmlMinifier` option in config that allows configuration of HTML minification in production mode.
-- Fixed HTML minification removing `type` attribute for `<input type="text">`.
-
-### 8.1.0
-
-- Vueify now respects `.babelrc` over default options.
-
-### 8.0.0
-
-- `babel-core` is now a peer dependency.
-
-### 7.0.0
-
-- Added relative `@import` path support and import dependency tracking for LESS, SASS & Stylus. Now you can `@import` files using relative paths to the file being edited, and editing these imported files will also trigger watchify rebuild.
-
-- Removed built-in compiler for `myth`. Prefer using PostCSS + CSSNext.
-
-### 6.0.0
-
-- Upgraded to Babel 6. This is a breaking change because the babel configuration is now different.
-
-### 5.0.4
-
-- Added `postcss` option for providing custom PostCSS plugins.
-
-### 5.0.0
-
-- New: CSS output is now autoprefixed by default.
-- Changed: [New config file format](#configuring-options)
-
-### 4.0.0
-
-- Support ES2015 by default.
-
-### 3.0.0
-
-- Added support for [scoped CSS](#scoped-css) and [component hot reloading](#hot-reload).
-
-### 2.0.1
-
-- Built-in lang for ES2015 has been renamed from `es6` to `es`.
-
-- `es` transforms now uses loose mode and optional runtime by default. This means in addition to installing `babel`, you should also install `babel-runtime`.
-
-- Templates and CSS are now non-minified by default. To enable minification, run the build with `NODE_ENV=production`.
-
-- Options for built-in pre-processors can now be configured in `vue.config.js`.
-
-- `vue-component-compiler` has been merged into `vueify`. It is now exposed as `require('vueify').compiler`.
+For version 9.0.0 and above, please see the [Releases](https://github.com/vuejs/vueify/releases) page for changes in each version.
 
 ## License
 
