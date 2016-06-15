@@ -1,11 +1,6 @@
 <template lang="pug">
-//- Declaration
-mixin list
-  ul
-    li foo
-    li bar
-    li baz
-//- Use
-+list
-+list
+div
+  h1 This is the app
+  comp-a
+  comp-b
 </template>
