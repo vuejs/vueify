@@ -9,9 +9,14 @@ module.exports = function vueify (file, options) {
 
   var data = ''
   var stream = through(write, end)
+  stream.vueify = true
 
   function dependency(file) {
     stream.emit('file', file)
+  }
+
+  function emitStyle (style) {
+    stream.emit('vueify-style', style)
   }
 
   function write(buf) {
@@ -21,9 +26,11 @@ module.exports = function vueify (file, options) {
   function end () {
     stream.emit('file', file)
     compiler.on('dependency', dependency)
+    compiler.on('style', emitStyle)
 
     compiler.compile(data, file, function(error, result) {
       compiler.removeListener('dependency', dependency)
+      compiler.removeListener('style', emitStyle)
       if (error) {
         stream.emit('error', error)
         // browserify doesn't log the stack by default...
