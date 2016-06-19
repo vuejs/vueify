@@ -1,12 +1,11 @@
 var through = require('through')
 var compiler = require('./lib/compiler')
 
-compiler.loadConfig({
-  extractCss: true
-})
-
 module.exports = function vueify (file, options) {
-  if (!/.vue$/.test(file)) return through()
+  if (!/.vue$/.test(file)) {
+    return through()
+  }
+
   compiler.applyConfig(options)
   compiler.applyConfig({
     sourceMap: options._flags.debug
@@ -16,15 +15,15 @@ module.exports = function vueify (file, options) {
   var stream = through(write, end)
   stream.vueify = true
 
-  function dependency(file) {
+  function dependency (file) {
     stream.emit('file', file)
   }
 
-  function emitStyle (style) {
-    stream.emit('vueify-style', style)
+  function emitStyle (e) {
+    stream.emit('vueify-style', e)
   }
 
-  function write(buf) {
+  function write (buf) {
     data += buf
   }
 
@@ -33,7 +32,7 @@ module.exports = function vueify (file, options) {
     compiler.on('dependency', dependency)
     compiler.on('style', emitStyle)
 
-    compiler.compile(data, file, function(error, result) {
+    compiler.compile(data, file, function (error, result) {
       compiler.removeListener('dependency', dependency)
       compiler.removeListener('style', emitStyle)
       if (error) {

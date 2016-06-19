@@ -17,7 +17,7 @@
     "url": "https://github.com/vuejs/vueify/issues"
   },
   "scripts": {
-    "test": "mocha test/test.js --slow=5000 --timeout=10000"
+    "test": "eslint index.js lib && mocha test/test.js --slow=5000 --timeout=10000"
   },
   "homepage": "https://github.com/vuejs/vueify",
   "dependencies": {
@@ -42,6 +42,8 @@
     "browserify": "^13.0.1",
     "chai": "^3.5.0",
     "coffee-script": "^1.10.0",
+    "eslint": "^2.13.0",
+    "eslint-config-vue": "^1.0.3",
     "jade": "^1.11.0",
     "jsdom": "^9.2.1",
     "less": "^2.5.1",

@@ -1,13 +1,16 @@
 var fs = require('fs')
 var compiler = require('../lib/compiler')
 
-compiler.applyConfig({
-  extractCSS: true
-})
-
 module.exports = function (b, opts) {
-  var outPath = opts.out || opts.o || 'bundle.css'
+  compiler.applyConfig({
+    extractCSS: true
+  })
+
   var styles = Object.create(null)
+  var outPath = opts.out || opts.o || 'bundle.css'
+  if (typeof outPath === 'function') {
+    outPath = outPath()
+  }
 
   b.on('bundle', function (bs) {
     bs.on('end', function () {
