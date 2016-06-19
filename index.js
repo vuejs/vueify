@@ -8,6 +8,9 @@ compiler.loadConfig({
 module.exports = function vueify (file, options) {
   if (!/.vue$/.test(file)) return through()
   compiler.applyConfig(options)
+  compiler.applyConfig({
+    sourceMap: options._flags.debug
+  })
 
   var data = ''
   var stream = through(write, end)
