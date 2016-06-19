@@ -1,6 +1,7 @@
-process.env.VUEIFY_EXTRACT_CSS = true
-
 var fs = require('fs')
+var compiler = require('../lib/compiler')
+
+compiler.options.extractCSS = true
 
 module.exports = function (b, opts) {
   var outPath = opts.out || opts.o || 'bundle.css'

@@ -1,7 +1,9 @@
 var through = require('through')
 var compiler = require('./lib/compiler')
 
-compiler.loadConfig()
+compiler.loadConfig({
+  extractCss: true
+})
 
 module.exports = function vueify (file, options) {
   if (!/.vue$/.test(file)) return through()
