@@ -224,7 +224,7 @@ browserify('./main.js')
   .pipe(fs.createWriteStream("bundle.js"))
 ```
 
-### Scoped CSS
+## Scoped CSS
 
 When a `<style>` tag has the `scoped` attribute, its CSS will apply to elements of the current component only. This is similar to the style encapsulation found in Shadow DOM, but doesn't require any polyfills. It is achieved by transforming the following:
 
@@ -252,7 +252,7 @@ Into the following:
 </template>
 ```
 
-#### Notes
+### Scoped CSS Notes
 
 1. You can include both scoped and non-scoped styles in the same component.
 
@@ -260,7 +260,7 @@ Into the following:
   - A child component's root node
   - Content inserted to a child component via `<slot>`
 
-### Hot Reload
+## Hot Reload
 
 To enable hot component reloading, you need to install the [browserify-hmr](https://github.com/AgentME/browserify-hmr) plugin:
 
@@ -270,6 +270,27 @@ watchify -p browserify-hmr index.js -o bundle.js
 ```
 
 You can scaffold a hot-reload enabled project easily using `vue-cli` and the [this template](https://github.com/vuejs-templates/browserify-simple-2.0).
+
+## CSS Extraction
+
+By default, the CSS in each component is injected into the page using a `<style>` tag. This works well in most scenarios and enables CSS hot-reloading during development. However, in some cases you may prefer extracting all component CSS into a single file for better performance. To do that, you will need to add the CSS extraction browserify plugin.
+
+Via CLI:
+
+``` bash
+browserify -t vueify -p [ vueify/plugins/extract-css -o dist/bundle.css ] main.js
+```
+
+Via API:
+
+``` js
+browserify('./main.js')
+  .transform('vueify')
+  .plugin('vueify/plugins/extract-css', {
+    out: 'dist/bundle.css'
+  })
+  .bundle()
+```
 
 ## Compiler API
 
