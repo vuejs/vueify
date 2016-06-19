@@ -8,15 +8,18 @@ module.exports = function (b, opts) {
 
   var styles = Object.create(null)
   var outPath = opts.out || opts.o || 'bundle.css'
-  if (typeof outPath === 'function') {
-    outPath = outPath()
-  }
 
   b.on('bundle', function (bs) {
     bs.on('end', function () {
-      fs.writeFile(outPath, Object.keys(styles)
+      var css = Object.keys(styles)
         .map(function (file) { return styles[file] })
-        .join('\n'))
+        .join('\n')
+      if (typeof outPath === 'object' && outPath.write) {
+        outPath.write(css)
+        outPath.end()
+      } else if (typeof outPath === 'string') {
+        fs.writeFile(outPath, css)
+      }
     })
   })
 

@@ -287,10 +287,12 @@ Via API:
 browserify('./main.js')
   .transform('vueify')
   .plugin('vueify/plugins/extract-css', {
-    out: 'dist/bundle.css'
+    out: 'dist/bundle.css' // can also be a WritableStream
   })
   .bundle()
 ```
+
+This only works for vueify 9+. For Vue 1.x / vueify 8.x you can use [vueify-extract-css](https://github.com/rawcreative/vueify-extract-css).
 
 ## Compiler API
 
