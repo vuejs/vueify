@@ -36,6 +36,18 @@ function test (file, assert) {
   })
 }
 
+function testCssExtract (file, assert) {
+  it(file, done => {
+    fs.writeFileSync(mockEntry, 'window.vueModule = require("../fixtures/' + file + '.vue")')
+    browserify(mockEntry)
+      .transform(vueify)
+      .plugin('./plugins/extract-css', { out: { write: assert, end: done }})
+      .bundle((err, buf) => {
+        if (err) return done(err)
+      })
+  })
+}
+
 function assertRenderFn (options, template) {
   const compiled = vueCompiler.compile(template)
   expect(options.render.toString()).to.equal('function (){' + compiled.render + '}')
@@ -120,5 +132,9 @@ describe('vueify', () => {
     var style = window.document.querySelector('style').textContent
     var id = 'data-v-' + genId(require.resolve('./fixtures/media-query.vue'))
     expect(style).to.contain('@media print {\n  .foo[' + id + '] {\n    color: #000;\n  }\n}')
+  })
+
+  testCssExtract('style-export', css => {
+    expect(css).to.equal('h2 {color: red;}')
   })
 })
