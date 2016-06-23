@@ -3,7 +3,6 @@ process.env.VUEIFY_TEST = true
 const fs = require('fs')
 const path = require('path')
 const expect = require('chai').expect
-const hash = require('hash-sum')
 const rimraf = require('rimraf')
 const mkdirp = require('mkdirp')
 const browserify = require('browserify')
