@@ -146,6 +146,27 @@ These are the preprocessors supported by vueify out of the box:
 - pug
 - coffee-script (use `coffee` in [config section](#configuring-options))
 
+## Building for modern browsers
+
+If you're developing for modern browsers and you don't need to transpile your code you can use `noncompiled` value in lang attribute.
+Just make sure to use `commonjs` module syntax:
+
+``` vue
+<template>
+  <h2>{{msg}}</h2>
+</template>
+
+<script>
+module.exports = {
+  data () {
+    return {
+      msg: 'Non Compiled Component!'
+    }
+  }
+}
+</script>
+```
+
 ## PostCSS
 
 Vueify uses PostCSS for scoped CSS rewrite. You can also provide your own PostCSS plugins! See [config section](#configuring-options) below for an example.
