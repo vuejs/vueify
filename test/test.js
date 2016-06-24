@@ -134,6 +134,12 @@ describe('vueify', () => {
     expect(style).to.contain('@media print {\n  .foo[' + id + '] {\n    color: #000;\n  }\n}')
   })
 
+  test('noncompiled', window => {
+    const module = window.vueModule
+    assertRenderFn(module, '<h2>{{msg}}</h2>')
+    expect(module.data().msg).to.contain('Hello from Non Compiled Component!')
+  })
+
   testCssExtract('style-export', css => {
     expect(css).to.equal('h2 {color: red;}')
   })
