@@ -67,7 +67,7 @@ npm install vueify --save-dev
 browserify -t vueify -e src/main.js -o build/build.js
 ```
 
-If you are using npm 3+, it no longer auto install the peer dependencies. So you will also have to also install the babel-related dependencies:
+If you are using npm 3+ and **babel**, it no longer auto install the peer dependencies. So you will also have to also install the babel-related dependencies:
 
 ``` bash
 npm install\
