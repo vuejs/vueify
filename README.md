@@ -294,6 +294,14 @@ browserify('./main.js')
 
 This only works for vueify 9+. For Vue 1.x / vueify 8.x you can use [vueify-extract-css](https://github.com/rawcreative/vueify-extract-css).
 
+## Building for Production
+
+When building for production, follow these steps to ensure smaller bundle size:
+
+1. Make sure `process.env.NODE_ENV === "production"`. This tells `vueify` to avoid including hot-reload related code.
+
+2. Apply a global [envify](https://github.com/hughsk/envify) transform to your bundle. This allows the minifier to strip out all the warnings in Vue's source code wrapped in env variable conditional blocks.
+
 ## Compiler API
 
 The compiler API (originally `vue-component-compiler`) is also exposed:
