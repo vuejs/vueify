@@ -121,9 +121,9 @@ Make sure to have the `NODE_ENV` environment variable set to `"production"` when
 
 If you are using Gulp, note that `gulp --production` **does not** affect vueify; you still need to explicitly set `NODE_ENV=production`.
 
-## ES2015 by Default
+## ES2015 when `babel-core` installed
 
-Vueify automatically transforms the JavaScript in your `*.vue` components using Babel. Write ES2015 today!
+Vueify automatically transforms the JavaScript in your `*.vue` components using Babel when it is installed. Write ES2015 today!
 
 The default Babel (6) options used for Vue.js components are:
 
