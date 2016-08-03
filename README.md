@@ -157,6 +157,7 @@ These are the built-in preprocessors:
 - jade
 - pug
 - coffee-script (use `coffee` in [config section](#configuring-options))
+- livescript ( lang="livescript" )
 
 ## Autoprefix by Default
 
