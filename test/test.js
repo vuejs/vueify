@@ -62,6 +62,15 @@ describe('vueify', () => {
     expect(style).to.contain('comp-a h2 {\n  color: #f00;\n}')
   })
 
+  test('graphql', window => {
+    var module = window.vueModule
+    assertRenderFn(module,
+      '<div>' +
+        '<span>Starwars Film: {{ film.title }}</span>' +
+      '</div>'
+    )
+  })
+
   test('pre-processors', window => {
     var module = window.vueModule
     assertRenderFn(module,
