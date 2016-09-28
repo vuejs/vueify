@@ -2,6 +2,8 @@
 
 > [Browserify](http://browserify.org/) transform for [Vue.js](http://vuejs.org/) components, with scoped CSS and component hot-reloading.
 
+**NOTE: master branch now hosts version ^9.0, which only works with Vue ^2.0. Vueify 8.x which works with Vue 1.x is in the [8.x branch](https://github.com/vuejs/vueify/tree/8.x).**
+
 This transform allows you to write your components in this format:
 
 ``` html
