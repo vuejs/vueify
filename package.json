@@ -44,6 +44,7 @@
     "coffee-script": "^1.10.0",
     "eslint": "^2.13.0",
     "eslint-config-vue": "^1.0.3",
+    "eslint-plugin-html": "^1.5.3",
     "jade": "^1.11.0",
     "jsdom": "^9.2.1",
     "less": "^2.5.1",
