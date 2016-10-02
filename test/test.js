@@ -92,6 +92,17 @@ describe('vueify', () => {
     )
   })
 
+  test('ejs', window => {
+    var module = window.vueModule
+    assertRenderFn(module,
+      '<div>' +
+        '<h1>This is the app</h1>' +
+        '<comp-a></comp-a>' +
+        '<comp-b></comp-b>' +
+      '</div>'
+    )
+  })
+
   test('scoped-css', window => {
     var module = window.vueModule
     var id = 'data-v-' + genId(require.resolve('./fixtures/scoped-css.vue'))
@@ -119,6 +130,11 @@ describe('vueify', () => {
   })
 
   test('template-import', window => {
+    var module = window.vueModule
+    assertRenderFn(module, '<div><h1>hello</h1></div>')
+  })
+
+  test('ejs-template-import', window => {
     var module = window.vueModule
     assertRenderFn(module, '<div><h1>hello</h1></div>')
   })
