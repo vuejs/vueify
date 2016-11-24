@@ -23,16 +23,11 @@ module.exports = function (b, opts) {
     })
   })
 
-  b.on('reset', listen)
-  listen()
-
-  function listen () {
-    b.on('transform', function (tr, file) {
-      if (tr.vueify) {
-        tr.on('vueify-style', function (e) {
-          styles[e.file] = e.style
-        })
-      }
-    })
-  }
+  b.on('transform', function (tr, file) {
+    if (tr.vueify) {
+      tr.on('vueify-style', function (e) {
+        styles[e.file] = e.style
+      })
+    }
+  })
 }
