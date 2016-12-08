@@ -271,7 +271,7 @@ npm install browserify-hmr --save-dev
 watchify -p browserify-hmr index.js -o bundle.js
 ```
 
-You can scaffold a hot-reload enabled project easily using `vue-cli` and the [this template](https://github.com/vuejs-templates/browserify-simple-2.0).
+You can scaffold a hot-reload enabled project easily using `vue-cli` and the [this template](https://github.com/vuejs-templates/browserify-simple).
 
 ## CSS Extraction
 
