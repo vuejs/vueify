@@ -6,6 +6,7 @@ module.exports = function vueify (file, options) {
     return through()
   }
 
+  compiler.loadConfig()
   compiler.applyConfig(options)
   compiler.applyConfig({
     sourceMap: options._flags.debug
