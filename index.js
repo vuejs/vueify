@@ -8,9 +8,12 @@ module.exports = function vueify (file, options) {
 
   compiler.loadConfig()
   compiler.applyConfig(options)
-  compiler.applyConfig({
-    sourceMap: options._flags.debug
-  })
+
+  if (options._flags) {
+    compiler.applyConfig({
+      sourceMap: options._flags.debug
+    })
+  }
 
   var data = ''
   var stream = through(write, end)
