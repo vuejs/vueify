@@ -18,7 +18,7 @@ module.exports = function (b, opts) {
         outPath.write(css)
         outPath.end()
       } else if (typeof outPath === 'string') {
-        fs.writeFile(outPath, css, function () {})
+        fs.writeFileSync(outPath, css)
       }
     })
   })
