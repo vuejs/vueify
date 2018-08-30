@@ -1,11 +1,11 @@
 {
-  "name": "@clay/vueify",
+  "name": "@claycms/vueify",
   "version": "9.4.2",
   "description": "Vue component transform for Browserify",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/vuejs/vueify"
+    "url": "https://github.com/clay/vueify"
   },
   "keywords": [
     "vue",
@@ -14,12 +14,12 @@
   "author": "Evan You",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vuejs/vueify/issues"
+    "url": "https://github.com/clay/vueify/issues"
   },
   "scripts": {
     "test": "eslint index.js lib && mocha test/test.js --slow=5000 --timeout=10000"
   },
-  "homepage": "https://github.com/vuejs/vueify",
+  "homepage": "https://github.com/clay/vueify",
   "dependencies": {
     "chalk": "^1.1.1",
     "convert-source-map": "^1.2.0",
