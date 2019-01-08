@@ -43,7 +43,7 @@
     "babel-runtime": "^6.0.0",
     "browserify": "^13.0.1",
     "chai": "^3.5.0",
-    "coffee-script": "^1.10.0",
+    "coffeescript": "^1.10.0",
     "eslint": "^2.13.0",
     "eslint-config-vue": "^1.0.3",
     "eslint-plugin-html": "^1.5.3",
