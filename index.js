@@ -9,7 +9,7 @@ module.exports = function vueify (file, options) {
   compiler.loadConfig()
   compiler.applyConfig(options)
   compiler.applyConfig({
-    sourceMap: options._flags.debug
+    sourceMap: !!options._flags && options._flags.debug
   })
 
   var data = ''
