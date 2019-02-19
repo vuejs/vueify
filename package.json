@@ -1,11 +1,11 @@
 {
-  "name": "vueify",
-  "version": "9.4.1",
+  "name": "@nymag/vueify",
+  "version": "9.4.5",
   "description": "Vue component transform for Browserify",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/vuejs/vueify"
+    "url": "https://github.com/clay/vueify"
   },
   "keywords": [
     "vue",
@@ -14,33 +14,32 @@
   "author": "Evan You",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vuejs/vueify/issues"
+    "url": "https://github.com/clay/vueify/issues"
   },
   "scripts": {
     "test": "eslint index.js lib && mocha test/test.js --slow=5000 --timeout=10000"
   },
-  "homepage": "https://github.com/vuejs/vueify",
+  "homepage": "https://github.com/clay/vueify",
   "dependencies": {
     "chalk": "^1.1.1",
     "convert-source-map": "^1.2.0",
     "cssnano": "^3.3.2",
     "hash-sum": "^1.0.2",
+    "json5": "^0.5.1",
     "lru-cache": "^4.0.0",
     "object-assign": "^4.0.1",
-    "postcss": "^5.0.10",
-    "postcss-selector-parser": "^2.0.0",
+    "postcss": "^7.0.2",
+    "postcss-selector-parser": "^5.0.0-rc.3",
     "source-map": "^0.5.6",
     "through": "^2.3.6",
-    "json5": "^0.5.1",
-    "vue-hot-reload-api": "^2.0.1",
-    "vue-template-compiler": "^2.0.0-alpha.8",
+    "vue": "^2.5.17",
+    "vue-hot-reload-api": "^2.3.0",
+    "vue-template-compiler": "^2.5.17",
     "vue-template-es2015-compiler": "^1.2.2"
   },
   "devDependencies": {
-    "babel-core": "^6.0.0",
-    "babel-plugin-transform-runtime": "^6.0.0",
-    "babel-preset-es2015": "^6.0.0",
-    "babel-runtime": "^6.0.0",
+    "@babel/core": "^7.0.1",
+    "@babel/preset-env": "^7.0.0",
     "browserify": "^13.0.1",
     "chai": "^3.5.0",
     "coffee-script": "^1.10.0",
