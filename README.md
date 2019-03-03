@@ -23,7 +23,7 @@ This transform allows you to write your components in this format:
 </template>
 
 <script>
-export default {
+module.exports = {
   data () {
     return {
       msg: 'Hello world!'
