@@ -43,7 +43,7 @@ You can also mix preprocessor languages in the component file:
 </style>
 
 <template lang="jade">
-h1(class="red") {{msg}}
+h1.red {{msg}}
 </template>
 
 <script lang="coffee">
