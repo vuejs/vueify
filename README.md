@@ -150,6 +150,7 @@ These are the preprocessors supported by vueify out of the box:
 - scss (via `node-sass`, use `sass` in [config section](#configuring-options))
 - jade
 - pug
+- ejs
 - coffee-script (use `coffee` in [config section](#configuring-options))
 
 ## PostCSS
